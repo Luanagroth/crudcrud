@@ -1,0 +1,12 @@
+export function criarElementoCliente(cliente, onDelete) {
+  const li = document.createElement("li");
+  li.innerHTML = `
+    ${cliente.nome} - ${cliente.email}
+    <button>Excluir</button>
+  `;
+
+  const botao = li.querySelector("button");
+  botao.addEventListener("click", () => onDelete(cliente._id));
+
+  return li;
+}
