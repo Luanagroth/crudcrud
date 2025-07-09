@@ -5,7 +5,6 @@ const URL = "https://crudcrud.com/api/78082f872e0d42b6b1b6ec1db7381f1d/cadastro"
 const form = document.getElementById("formulario");
 const lista = document.getElementById("cadastroClientes");
 
-// ➤ Listar clientes
 function carregarClientes() {
   fetch(URL)
     .then(res => res.json())
@@ -18,12 +17,11 @@ function carregarClientes() {
     });
 }
 
-// ➤ Adicionar cliente
 form.addEventListener("submit", e => {
   e.preventDefault();
-
   const nome = document.getElementById("nome").value.trim();
   const email = document.getElementById("email").value.trim();
+
   if (!nome || !email) return alert("Preencha todos os campos!");
 
   const cliente = new Cliente(nome, email);
@@ -39,7 +37,6 @@ form.addEventListener("submit", e => {
     });
 });
 
-// ➤ Deletar cliente
 function deletarCliente(id) {
   fetch(`${URL}/${id}`, {
     method: "DELETE"

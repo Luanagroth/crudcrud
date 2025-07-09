@@ -5,8 +5,6 @@ export function criarElementoCliente(cliente, onDelete) {
     <button>Excluir</button>
   `;
 
-  const botao = li.querySelector("button");
-  botao.addEventListener("click", () => onDelete(cliente._id));
-
+  li.querySelector("button").addEventListener("click", () => onDelete(cliente._id));
   return li;
 }
